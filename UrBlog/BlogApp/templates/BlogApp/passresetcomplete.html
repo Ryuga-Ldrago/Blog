@@ -1,0 +1,17 @@
+
+{% extends 'BlogApp/base.html' %}
+
+{% block title %} Ur_Blog : Reset complete {% endblock title %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row justify-content-center my-5">
+            <div class="col-8  passreset-complete py-5 px-3">
+                <h1>Password Reset completed Successfully!!..</h1>
+                <h4><a href="{% url 'login' 'yy' %}">Go to Login</a></h4>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %} 

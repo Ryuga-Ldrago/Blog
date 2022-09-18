@@ -1,0 +1,82 @@
+{% extends 'BlogApp/base.html' %}
+{% block title %} Ur_Blog : search {% endblock title %}
+{% block content %}
+    <style>
+    .search-title h1{
+    font-size: 60px;
+    letter-spacing:4px;
+    text-align: center;
+    color: #3c3c9f;
+    font-weight: 700;
+    text-shadow: 6px 3px 9px rgba(0,0,0,0.6);
+}
+    </style>
+    {% if search_cat_data or search_post_data  %}
+    <div class="search-title mt-2">
+      <h1 class="text-center">
+        Search Result
+      </h1>
+    </div>
+    <div class="container">
+        {% if search_cat_data %}
+        <div class="row justify-content-center">
+            <div class="col-12 mt-3 mb-2" >
+                <div class="alert text-center" id="category-heading">
+                   Categories
+               </div>
+           </div>
+        </div>
+        {% for search in search_cat_data %}
+        <div class="row py-4 px-4 mb-3 justify-content-around bg-post-container">
+          <div class="col-lg-4 col-10 ">
+             <div class="post-card-img ms-lg-5">
+              <img src="{{search.cat_image.url}}" alt="">       
+             </div>
+          </div>
+          <div class="col-lg-6 col-10 my-4 post-content">
+            <a href="{% url 'category' search.url %}"><h3>{{search.title}}</h3></a>
+            <p>{{search.description | truncatewords:25 | safe}}</p>
+            <a href="{% url 'category' search.url %}" class="btn post-btn">View..</a>
+            <div class="comment-person">
+              <p class="mt-2">{{search.add_date}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+        </div> 
+
+    <div class="container">
+        {% if search_post_data %}
+        <div class="row justify-content-center">
+            <div class="col-12 mt-3 mb-2" >
+                 <div class="alert text-center" id="category-heading">
+                    Posts
+                </div>
+            </div>
+        </div>
+        {% for search_post in search_post_data %}
+        <div class="row py-4 px-4 mb-3 justify-content-around bg-post-container">
+          <div class="col-lg-4 col-12 ">
+             <div class="post-card-img ms-lg-5">
+              <img src="{{search_post.post_image.url}}" alt="">       
+             </div>
+          </div>
+          <div class="col-lg-6 col-12 my-4 post-content">
+            <a href="{% url 'post' search_post.url %}"><h3>{{search_post.title}}</h3></a>
+            <p>{{search_post.content | truncatewords:25 | safe}}</p>
+            <a href="{% url 'post' search_post.url %}" class="btn post-btn">Read More..</a>
+            <div class="comment-person">
+              <p class="mt-2">{{search_post.add_date}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div> 
+      {% else %}
+        <h1 class="alert alert-danger mt-2 text-center">NO Data Found Related to your  search</h1>
+      {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+
+{% endblock content %}

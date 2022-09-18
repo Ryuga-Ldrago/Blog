@@ -1,0 +1,809 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    height: 1000px;
+    background-color: rgb(215, 223, 230);
+}
+
+:root{
+    --color-white:rgb(4, 4, 4);
+}
+
+/* ===========-------- Navbar Start --------===========*/
+.nav-bg{
+    background-color: rgba(44, 92, 132, 0.792);
+}
+
+.logo{
+    font-family: 'Merriweather', serif;
+    font-size: 25px;
+    font-weight: 900;
+    cursor:pointer;
+
+}
+
+.span-red{
+    color:red !important;
+    font-family: 'Merriweather', serif;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.drop-down{
+    border-radius:0%;
+    background-color: rgba(44, 92, 132, 0.792);       
+}
+
+.drop-down li a{
+    color:var(--color-white);
+    transition: all .5s;
+}
+
+.drop-down li a:hover{
+    background-color:rgba(124, 170, 207, 0.792);
+    color:var(--color-white);
+}
+
+.nav-mid li a{
+    font-weight:900;
+}
+
+.home{
+    border:2px solid black;
+}
+
+.search-btn{
+    background-color: rgb(31, 130, 183);
+    border-radius:30px;
+    padding:5px 5px;
+    border:none;
+    position:absolute;
+    right:2px;
+    top:2px;
+    color:var(--color-white);
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: all .5s;
+
+}
+
+.search-btn:hover{
+    border:1px solid rgb(31, 115, 183);
+    background-color: transparent;
+    position:absolute;
+    top:1px;
+    color:rgb(31, 115, 183);
+    padding:5px 7px;
+}
+.create-account{
+    color:rgb(16, 27, 36);
+    text-decoration: none;
+
+}
+.login{
+    border:2px solid transparent;
+    padding:5px 10px;
+    background-color: rgb(31, 130, 183);
+    border-radius: 10px;
+    font-weight: 700;
+    color:rgba(227, 236, 243, 0.792);
+    transition: all .5s;
+}
+
+.login:hover{
+    border:1px solid rgb(31, 115, 183);
+    background-color: transparent;
+    color:rgb(222, 231, 239);
+
+}
+
+.search-field{
+    width:100%;
+    border:transparent;
+    border-radius:30px;
+    background-color:rgba(227, 236, 243, 0.792);
+}
+
+form{
+    position:relative;
+}
+
+#log{
+    display: flex;
+    gap:10px;
+    padding:0px 5px;
+}
+
+
+/* ===========-------- Navbar End --------===========*/
+/* ===========-------- Carousel Start --------===========*/
+
+.carousel-height{
+      height:70vh !important;
+}
+.carousel-img{
+    height:100%;
+}
+.carousel-img img{
+    height:100%;
+}
+
+/* ===========-------- Carousel End --------===========*/
+/* ===========-------- Category Heading Tag Start --------===========*/
+
+#category-heading{
+   border-radius: 0%;
+   font-family: 'Merriweather', serif;
+   letter-spacing: 2px;
+   font-size:25px;
+   font-weight:900;
+   background-color: rgba(44, 92, 132, 0.792);
+}
+
+/* ===========-------- Category Heading Tag End--------===========*/
+/* ===========-------- Category Cards Start--------===========*/
+
+.img{
+    width:100%;
+    height:220px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.img img{
+    width:100%;
+    height:100%;
+    transition:all .4s;
+}
+
+.img img:hover{
+
+    transform: scale(1.1);
+
+}
+
+.box{
+     padding:0;
+     border-radius: 10px;
+     box-shadow: 10px 10px 30px 1px rgba(125,123,125,1);
+     background: rgb(133 169 192);
+     height: 390px;
+     transition: all .5s;
+}
+
+.box:hover{
+    transform: scale(1.1);
+}
+
+.content{
+    text-align: center;
+}
+.content h4{
+    font-weight: 700;
+    font-family: 'Merriweather', serif;
+
+
+}
+
+.content p{
+    font-size: 15px;
+    line-height: 18px;
+    font-family: 'Merriweather', serif;
+    font-weight: 500;
+}
+
+.read-more-div{
+    text-align: center;
+    margin-top:30px;
+}
+.read-more-div a{
+    color:var(--color-white);
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    padding:5px 20px;
+    border:2px solid transparent;
+    background-color: #417586;
+    transition:all .5s;
+    /* margin-top: 50px; */
+}
+
+.read-more-div a:hover{
+    border:2px solid #417586;
+    background: transparent;
+    color:#417586;
+    
+}
+
+
+/* ===========-------- Category Cards End--------===========*/
+/* ===========-------- Post Cards Start--------===========*/
+.bg-post-container{
+    background-color:white;
+}
+.post-card-img{
+    /* border:2px solid black; */
+    height: 250px;
+    width:100%;
+    
+}
+.post-card-img img{
+    width: 100%;
+    height: 100%;
+    transition: all .6s;
+}
+.post-card-img img:hover{
+    opacity: .8;
+}
+.post-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post-content a{
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.post-content a:hover{
+    text-decoration: underline;
+}
+
+.post-btn{
+    width:50%;
+    color:var(--color-white);
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    padding:5px 20px;
+    border:2px solid transparent;
+    background-color: #417586;
+    transition:all .5s;
+    
+}
+.post-btn:hover{
+    border:2px solid #417586;
+    background: transparent;
+    color:#417586;
+    text-decoration: none !important;
+}
+
+/* ===========-------- Post Cards End--------===========*/
+/* ===========-------- Footer Start--------===========*/
+.text-footer-h2 h2{
+    font-family: 'Merriweather', serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color:var(--color-white);
+}
+.social-media-icon
+{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    
+    
+}
+.social-media-icon i{
+    font-size: 40px;
+}
+
+.footer-box{
+    background-color: #195e74f5;
+}
+
+.in-color{
+    color:var(--color-white);
+    transition: all 0.5s;
+}
+.wh-color{
+    color:var(--color-white);
+    transition: all 0.5s;
+}
+.ln-color{
+    color:var(--color-white);
+    transition: all 0.5s;
+}
+.fb-color{
+    color:var(--color-white);
+    transition: all 0.5s;
+}
+.gt-color{
+    color:var(--color-white);
+    transition: all 0.5s;
+}
+
+.in-color:hover{
+    color:#763c6f;
+}
+.fb-color:hover{
+    color:rgb(0, 0, 161);
+}
+.wh-color:hover{
+    color: rgb(8, 89, 8);
+}
+.gt-color:hover{
+    color:rgb(60, 60, 60);
+}
+.ln-color:hover{
+    color:rgb(0, 0, 161);
+}
+
+
+.bg-footer{
+    background-color: #268badf5;
+}
+
+
+.textarea-field{
+    resize: none;
+    border-radius: 0%;
+    height:200px;
+    margin-top: 20px;
+}
+.email-field{
+    border-radius: 0%;
+}
+
+.query-send-btn{
+    text-align: center;
+    border:2px solid transparent;
+    margin-top: 10px;
+    background-color: #415286;
+    color:var(--color-white);
+    font-weight: 600;
+    font-family: 'Merriweather', serif;
+    padding:5px 0px;
+    width:100%;
+    transition:all .5s;
+}
+.query-send-btn:hover{
+    border:2px solid #415286;
+    border-radius: 10px;
+    background: transparent;
+    color:#415286;
+}
+
+/* second */
+
+.contact h2{
+    border-bottom: 2px solid var(--color-white);
+    font-weight: 800;
+    font-family: 'Merriweather', serif;
+    color: var(--color-white);
+    
+}
+.contact-detail h3{
+   color: var(--color-white);
+}
+
+.contact-detail h6{
+    color:var(--color-white);
+    font-weight: 600;
+}
+.footer-third{
+    background-color: #195e74f5;
+}
+.footer-third h6 a{
+   text-decoration:none;
+   color:var(--color-white);
+
+}
+.footer-third h6{
+    padding-top: 10px;
+}
+/* ===========-------- Footer End--------===========*/
+
+/* ==========/////////////////============ Category.html ============/////////////////========== */
+
+/* ===========-------- Category Image Start --------===========*/
+
+.category-head-img{
+    height:60vh;
+    border-radius: 20px;
+}
+
+.category-head-img img{
+    width:100%;
+    height: 100%;
+    /* border-radius: 20px; */
+}
+
+/* ===========-------- Category Image End --------===========*/
+/* ===========-------- Dynamic Post Links Start --------===========*/
+
+#post-link{
+    border: 2px solid black; 
+    background-color: antiquewhite;
+    box-shadow: 10px 10px 39px -20px rgba(0,0,0,0.75);
+}
+
+.post-link-col a{
+   text-decoration: none;
+   font-weight: 600;
+   font-size: 22px;
+   transition: all .5s;
+}
+
+.post-link-col a:hover{
+    font-size: 23px;
+}
+
+/* ===========-------- Dynamic Post Links End --------===========*/
+
+/* ==========/////////////////============ Post.html ============/////////////////========== */
+
+.post-para
+{
+    font-family: 'Merriweather', serif;
+    text-align: justify;
+
+}
+
+.else{
+    color: red;
+}
+
+/* ==========/////////////////============ comment.html ============/////////////////========== */
+
+.comment-heading{
+    font-weight: 700;
+    color: #575757;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+.comment-area{
+    border-radius: 10px !important;
+    border: transparent;
+    width: 100%;
+    height: 100px;
+    resize: none;
+    padding:15px 10px; 
+  
+}
+.comment{
+    border-radius: 0%;
+    border:2px solid transparent;
+    font-weight: 700;
+    background:rgb(66, 76, 126);
+    float:right;
+    color: white;
+    transition: all .4s;
+}
+
+.comment:hover{
+    transform: translateX(-10px);
+    color:rgb(66, 76, 126);
+    border:2px solid rgb(66, 76, 126);
+}
+
+
+.comment-person h4{
+    font-weight:600;
+    font-size: 20px;
+    color:rgb(69, 109, 240);
+
+}
+.comment-person p{
+    font-size: 14px;
+    font-weight: 500;
+    color: gray;
+}
+
+.comment-i i{
+    font-size: 50px;
+    color:rgb(69, 109, 240);
+    margin-right: 14px;
+}
+.commented-data p{
+    font-size: 17px;
+    font-family: 'Merriweather', serif;
+}
+.like-comment-share{
+    display: flex;
+    gap:30px;
+}
+
+/* ==========/////////////////============ contact.html ============/////////////////========== */
+
+.contact-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contact-content h1{
+    font-size: 3.7em;
+    font-weight: 700;
+    color: #3c3c9f;
+    letter-spacing: 1px;
+    text-shadow: 6px 3px 9px rgba(0,0,0,0.6);
+
+}
+.contact-content p{
+    font-size: 15px;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 22px;
+
+}
+.contact-btn{
+    color:black;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    padding:5px 20px;
+    border:2px solid transparent;
+    background-color: #417586;
+    transition:all .5s;
+}
+.contact-btn:hover{
+    border:2px solid #417586;
+    background: transparent;
+    color:#417586;
+}
+
+.contact-field{
+    border: 2px solid transparent;
+    padding: 10px 20px;
+    border-bottom: 2px solid rgb(62, 92, 149) !important;
+    background-color: rgb(183, 208, 229);
+    font-size: 18px;
+    font-weight: 700;
+    color: blue;
+}
+
+
+.contact-textarea{
+    height: 200px;
+    resize: none;
+}
+
+.main-col{
+    background-color: rgb(183, 208, 229);
+    box-shadow: -1px 7px 31px -1px rgba(0,0,0,0.75);
+}
+
+.contact-img a img{
+    width:40px;
+    height: 40px;
+}
+
+.contact-img{
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+@media screen and (max-width: 430px) {
+    .contact-img a img{
+        width:25px;
+        height: 25px;
+    }
+    .contact-content p{
+        font-size: 10px;
+        /* text-align: justify; */
+        letter-spacing: 1px;
+        line-height: 22px;
+    
+    }
+    .contact-content h1{
+        font-size: 2em;
+        font-weight: 700;
+        color: #3c3c9f;
+        letter-spacing: 1px;
+        text-shadow: 6px 3px 9px rgba(0,0,0,0.6);
+  }
+}
+
+/* ==========/////////////////============ login.html and Signup.html ============/////////////////========== */
+
+.login-container{
+    background-color: rgb(183, 208, 229);
+    box-shadow: -1px 7px 31px -1px rgba(0,0,0,0.75);
+
+}
+
+.login-img{
+
+    background:#bbb4f3;
+    box-shadow:-1px 7px 31px -1px rgb(148 83 225 / 75%)
+    
+}
+
+.login-form{
+
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    gap:20px;
+}
+
+.login-form form input,textarea{
+    padding:10px;
+    font-weight: 500;
+    margin: 5px 0px;
+}
+
+.login-form h1{
+    font-size: 60px;
+    letter-spacing:4px;
+    text-align: center;
+    color: #3c3c9f;
+    font-weight: 700;
+    text-shadow: 6px 3px 9px rgba(0,0,0,0.6);
+}
+
+.login-form form button{
+    color:black;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    padding:5px 20px;
+    border:2px solid transparent;
+    background-color: #417586;
+    color:white;
+    transition:all .5s;
+}
+
+.login-form form button:hover{
+    border:2px solid #417586;
+    background: transparent;
+    color:#417586;
+}
+
+.login-form form label{
+    font-weight: 500;
+    color:rgb(53, 53, 53);
+}
+
+input[type="text"],input[type="password"],input[type="checkbox"],input[type="email"],textarea{
+    border: 3px solid #ccc;
+    transition: 0.5s;
+    outline: none;
+}
+  
+input[type="text"]:focus,input[type="password"]:focus,input[type="checkbox"],input[type="email"]:focus,textarea:focus{
+    border: 3px solid rgb(63, 63, 125);
+}
+
+.img-container{
+    width: 100%;
+    height:90vh;
+}
+
+.img-container img{
+    width: 100%;
+    height:90vh;
+}
+
+::placeholder{
+    font-size:12px;
+}
+
+.success{
+    color: red;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.likebutton,.dislikebutton{
+    border: 1px solid rgb(66, 76, 126);
+    background-color:rgb(232, 232, 232);
+    font-weight: 600;
+    font-size: 18px;
+    width:150px;
+    color: rgb(31, 30, 30);
+}
+
+.likebutton i{
+    color: green;
+    font-size: 24px;
+}
+.dislikebutton i{
+    color: rgb(128, 0, 0);
+    font-size: 24px;
+}
+
+
+.like_dis_btn_div{
+    /* border:2px solid red ;  */
+    display:flex; 
+    justify-content:center; 
+    gap:20px;
+}
+
+/* ==========/////////////////============ Password Reset ============/////////////////========== */
+
+
+.passreset,.password_reset_done,.password-reset-confirm,.passreset-complete{
+    height: auto;
+    width:100%;
+    display: flex;
+    gap:30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border:2px solid transparent;
+    background-color: #94c0ce;
+}
+.passreset-complete h1,.passreset h1,.password_reset_done h1,.password-reset-confirm h1{
+    letter-spacing:4px;
+    text-align: center;
+    color: #3c3c9f;
+    font-weight: 700;
+    text-shadow: 6px 3px 9px rgba(0,0,0,0.6);
+}
+
+.passreset div form input[type="submit"],.password-reset-confirm form input[type='submit'],.passreset-complete h4 a{
+    color:black;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    padding:5px 20px;
+    border:2px solid transparent;
+    background-color: #417586;
+    transition:all .5s;
+}
+.passreset div form input[type="submit"]:hover,.password-reset-confirm form input[type='submit']:hover,.passreset-complete h4 a:hover{
+    border:2px solid #417586;
+    background: transparent;
+    color:#417586;
+}
+
+.passreset div form input[type="email"]{
+    padding:4px auto;
+}
+
+.passreset-inside,.passreset-inside form{
+    display: flex;
+    gap:30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.password_reset_done{
+    height:60vh;
+    gap:0px;
+}
+
+.password-reset-confirm form label{
+    font-weight: 700;
+}
+
+.password-reset-confirm form input[type='submit']{
+    width:100%;
+    
+}
+.errorlist{
+    color:red;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+    
+/* -------=========== media queries ==========---------- */
+
+@media screen and (min-width: 250px) and (max-width:991px) {
+    #srch{
+        margin-bottom:8px;
+    }
+    .login-form{
+        margin-top:40px;
+    }
+}

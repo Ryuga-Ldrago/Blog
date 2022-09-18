@@ -1,0 +1,58 @@
+{% extends 'BlogApp/base.html' %}
+{% load static %}
+{% block title %}Ur_Blog : Sign Up{% endblock title %}
+{% block content %}
+<style>
+    .success{
+        text-align: center;
+       color: #05a905;
+       font-weight: 700;
+    }
+    .errorlist{
+        color: red;
+        font-size: 14px;
+        font-weight: 600;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center my-4">
+        <div class="col-lg-11 login-container">
+            <div class="row justify-content-evenly my-4">
+                <div class="col-lg-6 col-11 mb-xs-3 mb-lg-0 login-img">
+                    <div class="img-container">
+                        <img src="{% static 'BlogApp/images/signup.png' %}" alt="error">
+                    </div>
+                </div>
+                <div class="col-lg-5 col-11 login-form">
+                    <h1>Sign Up</h1>
+                    <form action="" method="POST" novalidate>
+                        {% csrf_token %}
+                        {% if form.non_field_errors %}
+                        {% for error in non_fielderrors %}
+                           <span class="errorlist">{{error}}</span><br>
+                        {% endfor %}
+                        {% endif %}
+                            {% for fm in form %}
+                            {{fm}} 
+
+                            {% for error in fm.errors %}
+                                <span class="errorlist">{{error}}</span>
+                            {% endfor %}
+                            <br>
+                            {% endfor %}
+                        <!-- <input type="checkbox" name="check" id="id_check">
+                        <label for="id_check">Remind me</label> -->
+                        <button type="submit" class="w-100 my-5">Sign up</button>
+                    </form>
+                    {% if messages %}
+                    {% for message in messages %}
+                       <p {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</p>
+                    {% endfor %}
+                    {% endif %}                     
+                    <h5 class="text-center"><a href="{% url 'login' 'yy' %}">Go to Login</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

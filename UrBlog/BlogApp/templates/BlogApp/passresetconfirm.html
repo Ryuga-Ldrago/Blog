@@ -1,0 +1,31 @@
+
+{% extends 'BlogApp/base.html' %}
+
+{% block title %} Ur_Blog : Password Confirmed {% endblock title %}
+
+{% block content %}  
+
+    <div class="container">
+        <div class="row justify-content-center my-5">
+            <div class="col-8 password-reset-confirm py-5">
+                <h1> Enter Password </h1>
+                <form action="" method="post" novalidate>
+                    {% csrf_token %}
+                    {% for fm in form %}
+                     {{fm.label_tag}} <div>
+                        {{fm}}
+                     </div> 
+                    {% for error in fm.errors %}
+                        <div>
+                            <span class="errorlist">{{error}}</span>
+                        </div>
+                    {% endfor %}
+                    <br><br>
+                    {% endfor %}
+                    <input type="submit" value="Reset">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

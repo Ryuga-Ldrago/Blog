@@ -1,0 +1,56 @@
+{% extends 'BlogApp/base.html' %}
+{% block title %} Ur_Blog : Category {% endblock title %}
+
+
+       <!-- Category Image Start -->
+    {% block content %}
+       <div class="container">
+        <div class="row mt-4">
+            <div class="col-12 category-head-img">
+                <img src="{{single_cate.cat_image.url}}" alt="">
+            </div>
+        </div>
+       </div>
+
+       <!-- Category Image End -->
+
+      <!-- Posts Heading Start -->
+
+        <div class="alert text-center mt-4" id="category-heading" role="alert">
+            Posts
+        </div>
+        
+      <!-- Posts Heading End -->
+
+       <!-- Dynamic Post Links Start -->
+       
+       {% if posts %}
+        <div class="container">
+        {% for post in posts %}
+        <div class="row py-4 px-4 mb-3 justify-content-around bg-post-container">
+          <div class="col-lg-4 col-12 ">
+             <div class="post-card-img ms-lg-5">
+              <img src="{{post.post_image.url}}" alt="">       
+             </div>
+          </div>
+          <div class="col-lg-6 col-12 my-4 post-content">
+            <a href="{% url 'post' post.url %}"><h3>{{post.title}}</h3></a>
+            <p>{{post.content | truncatewords:25 | safe}}</p>
+            <a href="{% url 'post' post.url %}" class="btn post-btn">Read More..</a>
+            <div class="comment-person">
+              <p class="mt-2">{{post.add_date}}</p>
+            </div>
+
+            
+          </div>
+        </div>
+        {% endfor %}
+        </div> 
+        {% else %}
+
+        <h3 class="text-center else">Oops !!! Sorry,there is no posts related to {{single_cate.title}} category</h3>
+
+        {% endif %}       
+
+       <!-- Dynamic Post Links End -->
+       {% endblock content %}

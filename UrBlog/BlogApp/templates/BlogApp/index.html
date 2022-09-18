@@ -1,0 +1,78 @@
+{% extends 'BlogApp/base.html' %}
+
+{% block title %} Ur_Blog : Home {% endblock title %}
+
+      {% block content %}      
+      <!-- Carousel Start -->
+      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner carousel-height">
+          {% if c_data %}
+          {% for img in c_data %}
+            <div class="carousel-item carousel-img active">
+              <img src="{{img.carosuel_image.url}}" class="d-block w-100" alt="error">
+            </div>
+          {% endfor %}
+          {% else %}
+            <h2 class="else">No cat Comes {{request.user}}</h2>
+          {% endif %}
+        </div>
+      </div> 
+      <!-- Carousel End -->
+      <!-- Category Heading Tag Start -->
+
+      <div class="alert text-center" id="category-heading" role="alert">
+        Category
+      </div>
+
+      <!-- Category Heading Tag End -->
+      <!-- Category Cards Start -->
+
+       <div class="container-fluid">
+        <div class="row justify-content-evenly mb-5">
+           {% if cat %}
+           {% for dt in cat %}
+          <div class="col-md-4 col-lg-3 col-sm-5 col-11 mt-4">
+            <div class="box">
+              <div class="img">
+                <img src="{{dt.cat_image.url}}" alt="ImageError" class="img-fluid">
+              </div>
+              <div class="content">
+                <h4 class="mt-3">{{dt.title| capfirst}}</h4> 
+                <p>{{dt.description | truncatewords:"10" | safe| capfirst}}</p>
+              </div>
+              <div class="read-more-div">
+                <a href="{% url 'category' dt.url %}" class="read-more-btn">View</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+         
+        </div>
+       </div>
+
+      <!-- Category Cards End -->
+
+      
+      {% if posts %}
+        <div class="container">
+        {% for post in posts %}
+        <div class="row py-4 px-4 mb-3 justify-content-around bg-post-container">
+          <div class="col-lg-4 col-12 ">
+             <div class="post-card-img ms-lg-5">
+              <img src="{{post.post_image.url}}" alt="">       
+             </div>
+          </div>
+          <div class="col-lg-6 col-12 my-4 post-content">
+            <a href="{% url 'post' post.url %}"><h3>{{post.title}}</h3></a>
+            <p>{{post.content | truncatewords:25 | safe}}</p>
+            <a href="{% url 'post' post.url %}" class="btn post-btn">Read More..</a>
+            <div class="comment-person">
+              <p class="mt-2">{{post.add_date}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div> 
+        {% endif %}    
+      {% endblock content %}  

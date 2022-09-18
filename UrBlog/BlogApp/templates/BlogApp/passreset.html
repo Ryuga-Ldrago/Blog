@@ -1,0 +1,29 @@
+{% extends 'BlogApp/base.html' %}
+
+{% block title %} Ur_Blog : Password Reset {% endblock title %}
+
+{% block content %}    
+    <div class="container">
+        <div class="row justify-content-center my-5 " >
+            <div class="col-8 passreset py-5">
+                <h1>Password Reset</h1>
+                <div class="passreset-inside">
+                    <h5>Enter Email ID :</h5>
+                    <form action="" method="post" novalidate>
+                        {% csrf_token %}
+                        {% for fm in form %}
+                        {{fm}}
+                        {% for error in fm.errors %}
+                            <div>
+                                <span class="errorlist">{{error}}</span>
+                            </div>
+                        {% endfor %}
+                        {% endfor %}
+                        <input type="submit" class='btn' value="Send link">
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock content %}    

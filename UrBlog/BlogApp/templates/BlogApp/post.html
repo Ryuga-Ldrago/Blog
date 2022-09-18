@@ -1,0 +1,167 @@
+{% extends 'BlogApp/base.html' %}
+{% block title %} Ur_Blog : Posts {% endblock title %}
+
+{% block content %}  
+
+       <!-- Category Image Start -->
+
+       <div class="container">
+        <div class="row my-4">
+            <div class="col-12 category-head-img">
+                <img src="{{post_data.post_image.url}}" alt="">
+            </div>
+        </div>
+       </div>
+
+
+       <!-- Category Image End -->
+
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <h1>{{post_data.title| capfirst}}</h1>
+                <p class="post-para">
+                    {{post_data.content|safe}}
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-3 like_dis_btn_div" >
+
+                <!-- Like Button -->
+                 
+                <button type="buttton" name="like" id=like{{post_data.url}}  class="likebutton"   value={{post_data.url}}><i class="fa-solid fa-thumbs-up" style="color:green;"></i> Like({{count_data}})</button>
+            
+                <!-- Dislike Button -->
+                <button type="button" name="dislikes" id=dislike{{post_data.url}} class="dislikebutton" value={{post_data.url}}><i class="fa-solid fa-thumbs-down" style="color:rgb(128, 0, 0);" ></i> Dislike({{d_count_data}})</button>  
+
+            </div>
+        </div>
+      </div>
+
+<br>
+<br>
+<hr>
+<br>
+<br>
+
+
+      <!-- Comment Section Start -->
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-11 comment-container">
+                <form action="" method="POST" novalidate name="comment_form" >
+                    {% csrf_token %}
+                    <h4 for="comment" class="comment-heading">Comment ({{comment_data.count}}):</h4>
+                    {% for fm in form %}
+                    {{fm}}
+                    {% endfor %}
+                         <br>
+                         <div class="comment-btn">
+                           <button class="btn comment">Post comment</button>        
+                           <!-- <a href="" class="btn comment">cancel</a> -->
+                        </div>        
+                 </form>
+            </div>
+        </div>
+        <div class="row justify-content-center my-5">
+            {% if comment_data %}
+            {% for comment in comment_data %}
+            <div class="col-10 my-3">
+                <div class="d-flex">
+                    <div class="comment-i">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="comment-person">
+                        <h4>{{comment.comment_user}}</h4>
+                        <p>posted on :  {{comment.post_date}}</p>
+                    </div>
+                </div>
+                <div class="commented-data mx-4">
+                    <p>{{comment.message}}</p>
+                </div>
+                <!-- <div class="like-comment-share">
+                    <div class="like-i"><i class="fa-solid fa-thumbs-up"></i> Like</div>
+                    <div class="comment-icon"><i class="fa-solid fa-thumbs-down"></i> Dislike</div>
+                    <div class="share-i"><i class="fa-solid fa-share"></i> Share</div>
+                </div> -->
+            </div>
+            {% endfor %}
+            {% endif %}
+         </div>
+       </div>
+      <!-- Comment Section End -->
+      
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+     <!-- like -->
+      <script>
+            $('.likebutton').click(function(){
+
+                let catid;
+                catid = $(this).val();
+                const get_id=this.id.toString();
+                $.ajax(
+                {
+
+                    type:"POST",
+                    url: "{% url  'like' %}",
+                    data:{
+                            like: catid,
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(d) 
+                    {
+                       if (typeof(d) != "string"){
+                        document.getElementById(get_id).innerHTML='<i class="fa-solid fa-thumbs-up" style="color:green;"></i> Like('+(d['count_like'])+')';
+                        document.getElementById('dis'+get_id).innerHTML='<i class="fa-solid fa-thumbs-down" style="color:rgb(128, 0, 0);"></i> Dislike('+(d['count_dislike'])+')';
+                       }
+                       else{
+                        window.location="{% url 'login' post_data.url %}"
+  
+                       }
+                    }
+                })
+            });   
+      </script>
+
+      <!-- Dislike -->
+      <script>
+        $('.dislikebutton').click(function(){
+
+            let dcatid;
+            dcatid = $(this).val();
+            const get_id ='like'+dcatid
+            const d_get_id=this.id.toString();   
+
+            $.ajax(
+            {
+                type:"POST",
+                url: "{% url  'dislike' %}",
+                data:{
+                        dislike: dcatid,
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(dl) 
+                {
+                    if (typeof(dl) != "string"){
+                        document.getElementById(get_id).innerHTML='<i class="fa-solid fa-thumbs-up" style="color:green;"></i> Like('+(dl['count_like'])+')';
+                        document.getElementById(d_get_id).innerHTML='<i class="fa-solid fa-thumbs-down" style="color:rgb(128, 0, 0);"></i> Dislike('+(dl["count_dislike"])+')';
+                        
+                    }
+                    else{
+                        window.location="{% url 'login' post_data.url %}"
+
+                       }                        
+                }
+            })
+        });   
+    </script>
+{% endblock content %}
+
+
+     
+
+     

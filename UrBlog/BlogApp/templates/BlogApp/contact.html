@@ -1,0 +1,46 @@
+{% extends 'BlogApp/base.html' %}
+{% load static %}
+{% block title %} Ur_Blog : Contact {% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 main-col my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-10 contact-content my-5">
+                  <h1 class="text-center my-3">
+                    Contact Us..
+                  </h1>
+                  <p class="mx-lg-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. A accusamus numquam reiciendis odit iusto, nobis maxime est inventore ratione. Debitis rerum id accusamus earum ipsam sed velit, vero modi excepturi!</p>
+                  <div class="contact-img mx-lg-5  my-3">
+                       <a href=""><img src="{% static 'BlogApp/images/Youtube.png' %}" alt="icon-error"></a>
+                       <a href=""><img src="{% static 'BlogApp/images/facebook.png' %}" alt="icon-error"></a>
+                       <a href=""><img src="{% static 'BlogApp/images/twitter.png' %}" alt="icon-error"></a>
+                       <a href=""><img src="{% static 'BlogApp/images/linkedIn.png' %}" alt="icon-error"></a>
+                       <a href=""><img src="{% static 'BlogApp/images/instagram.png' %}" alt="icon-error"></a>
+                       
+                       
+                  </div>
+                </div>
+                <div class="col-lg-6 col-10 my-5">
+                     <form action="" method="post">
+                        <div class="mb-3">
+                            <input type="text" class="w-100 contact-field" placeholder="Enter your fullname...">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="w-100 contact-field" placeholder="Enter your email...">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="w-100 contact-field" placeholder="Subject...">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="w-100 contact-field contact-textarea" placeholder="Message..."></textarea>
+                        </div>
+                     </form>
+                     <a href=""class='btn w-100 contact-btn'>Send</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
